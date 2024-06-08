@@ -6,15 +6,15 @@
 
 class ChessBoardDrawer {
     public: 
-        ChessBoardDrawer(int aWidth, int aHeight, std::string aFirstSquareColour, std::string aSecondSquarColour, std::string title);
-        void draw(sf::RenderWindow aBoard, std::string aFirstSquareColour, std::string aSecondSquarColour);
+        ChessBoardDrawer(int aWidth, int aHeight, sf::Color aFirstSquareColour, sf::Color aSecondSquareColour);
+        void drawSquares(sf::RenderWindow& aBoard, sf::Color aFirstSquareColour, sf::Color aSecondSquareColour);
         int getWidth();
         int getHeight();
-
+        sf::Color getFirstSquareColour();
+        sf::Color getSecondSquareColour();
     private:
-        std::string firstSquareColour;
-        std::string secondSquarColour;
-        std::string Title;
+        sf::Color firstSquareColour;
+        sf::Color secondSquareColour;
         int width; 
         int height;
 

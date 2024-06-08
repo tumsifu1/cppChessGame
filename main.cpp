@@ -1,25 +1,26 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "ChessBoardDrawer.h"
+void run(ChessBoardDrawer& drawer, const std::string& title) {
+    sf::RenderWindow window(sf::VideoMode(drawer.getWidth(), drawer.getHeight()), title);
 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
 
-        window.clear();
-        window.draw(shape);
+        window.clear(sf::Color::White);
+        drawer.drawSquares(window, drawer.getFirstSquareColour(), drawer.getSecondSquareColour());
         window.display();
     }
+}
 
+int main(){    
+    sf::Color white = sf::Color::White;
+    sf::Color black = sf::Color::Black;
+    ChessBoardDrawer Drawer(800, 800 , white, black);
+    run(Drawer, "Chess Board");
     return 0;
 }

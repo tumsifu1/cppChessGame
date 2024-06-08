@@ -2,11 +2,10 @@
 #include "ChessBoardDrawer.h"
 
 
-ChessBoardDrawer::ChessBoardDrawer(int aWidth, int aHeight,sf::Color aFirstSquareColour, sf::Color aSecondSquarColour, std::string aTitle)
-    :width(aWidth), height(aHeight), firstSquareColour(aFirstSquareColour), secondSquareColour(aSecondSquarColour), title(aTitle){ //member intializer list
-    sf::VideoMode mode = sf::VideoMode(width, height);
-    sf::RenderWindow board =  sf::RenderWindow(mode, title);
-    };
+ChessBoardDrawer::ChessBoardDrawer(int aWidth, int aHeight, sf::Color aFirstSquareColour, sf::Color aSecondSquareColour)
+    :width(aWidth), height(aHeight), firstSquareColour(aFirstSquareColour), secondSquareColour(aSecondSquareColour){ //member intializer list
+
+    }
 
 int ChessBoardDrawer::getWidth(){
     return width;
@@ -17,24 +16,30 @@ int ChessBoardDrawer::getHeight()
     return height;
 }
 
-        sf::Color ChessBoardDrawer::getFirstSquareColour(){
-            return firstSquareColour;
-        };
-        sf::Color ChessBoardDrawer::getSecondSquarColour(){
-            return secondSquareColour;
-        };
+sf::Color ChessBoardDrawer::getFirstSquareColour(){
+    return firstSquareColour;
+};
+sf::Color ChessBoardDrawer::getSecondSquareColour(){
+    return secondSquareColour;
+}
 
-void ChessBoardDrawer::drawSquares(sf::RenderWindow aBoard, std::string aFirstSquareColour, std::string aSecondSquarColour){
+void ChessBoardDrawer::drawSquares(sf::RenderWindow& window, sf::Color aFirstSquareColour, sf::Color aSecondSquareColour){
     //divide the sizes of each square to fit into the window 64x 
     //loop 64 times and each time %8 I increase the y by 1/8th
+    int widthOfSquare = getWidth() / 8;
+    int heightOfSquare = getHeight() / 8;
 
-    int widthOfSquare = getWidth()/8;
-    int heightOfSquare = getHeight()/8;
-    sf::RectangleShape rectangle(sf::Vector2f(widthOfSquare, heightOfSquare));
-    rectangle.setFillColor(getFirstSquareColour);
-    // for(int i= 0; i++; i<64){
-        
-    // }
-    
-};
+    for (int y = 0; y < 8; ++y) {
+        for (int x = 0; x < 8; ++x) {
+            sf::RectangleShape rectangle(sf::Vector2f(widthOfSquare, heightOfSquare));
+            if ((x + y) % 2 == 0) {
+                rectangle.setFillColor(aFirstSquareColour);
+            } else {
+                rectangle.setFillColor(aSecondSquareColour);
+            }
+            rectangle.setPosition(x * widthOfSquare, y * heightOfSquare);
+            window.draw(rectangle);
+        }
+    }
+}
 
