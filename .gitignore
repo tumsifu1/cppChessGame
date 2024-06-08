@@ -1,0 +1,13 @@
+# Ignore executable files
+*.exe
+*.out
+*.o
+
+# Ignore Visual Studio Code settings (only commit specific files)
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+
+# Ignore other build artifacts
+/build/
