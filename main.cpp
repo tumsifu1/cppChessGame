@@ -12,15 +12,16 @@ void run(ChessBoardDrawer& drawer, const std::string& title) {
         }
 
         window.clear(sf::Color::White);
-        drawer.drawSquares(window, drawer.getFirstSquareColour(), drawer.getSecondSquareColour());
+        drawer.draw(window);
         window.display();
     }
 }
 
 int main(){    
-    sf::Color white = sf::Color::White;
-    sf::Color black = sf::Color::Black;
-    ChessBoardDrawer Drawer(800, 800 , white, black);
+    sf::Color lightWood(222, 184, 135);
+    sf::Color darkWood(139, 69, 19);
+
+    ChessBoardDrawer Drawer(1000, 1000 , lightWood, darkWood);
     run(Drawer, "Chess Board");
     return 0;
 }

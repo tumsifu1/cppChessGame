@@ -7,7 +7,12 @@
 class ChessBoardDrawer {
     public: 
         ChessBoardDrawer(int aWidth, int aHeight, sf::Color aFirstSquareColour, sf::Color aSecondSquareColour);
+        void draw(sf::RenderWindow& aBoard);
         void drawSquares(sf::RenderWindow& aBoard, sf::Color aFirstSquareColour, sf::Color aSecondSquareColour);
+        void drawPeices(sf::RenderWindow& aBoard);
+        void drawNumbers(sf::RenderWindow& aBoard);
+        void drawLetters(sf::RenderWindow& aBoard);
+
         int getWidth();
         int getHeight();
         sf::Color getFirstSquareColour();
@@ -17,10 +22,6 @@ class ChessBoardDrawer {
         sf::Color secondSquareColour;
         int width; 
         int height;
-
-        
-
-
 };      
 
 #endif // BOARD_H
