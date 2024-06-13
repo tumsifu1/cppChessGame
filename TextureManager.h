@@ -10,6 +10,6 @@ class TextureManager {
         bool loadTextures();
     private:
         std::unordered_map<PieceType, sf::Texture> textures;
-}
+};
 
 #endif // TEXTUREMANAGER_H
