@@ -49,7 +49,7 @@ void ChessBoardDrawer::drawSquares(sf::RenderWindow& board, sf::Color aFirstSqua
 void ChessBoardDrawer::drawNumbers(sf::RenderWindow& board){
     int heightOfSquare = (getHeight() - 2 * (BORDER_WIDTH + MARGIN)) / 8;
     sf::Font font;
-    if (!font.loadFromFile("Roboto-Regular.ttf")) {
+    if (!font.loadFromFile("assets/Roboto-Regular.ttf")) {
         // handle error
     }
     sf::Text text;
@@ -84,7 +84,10 @@ void ChessBoardDrawer::drawLetters(sf::RenderWindow& board){
 
 void ChessBoardDrawer::drawPeices(sf::RenderWindow& board){
     //draw peices on board
+
  }
+
+
 
 void ChessBoardDrawer::draw(sf::RenderWindow& board){
     drawSquares(board, getFirstSquareColour(), getSecondSquareColour());
