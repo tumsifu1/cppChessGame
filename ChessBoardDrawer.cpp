@@ -84,9 +84,7 @@ void ChessBoardDrawer::drawLetters(sf::RenderWindow& board){
 
 void ChessBoardDrawer::drawPeices(sf::RenderWindow& board){
     //draw peices on board
-
  }
-
 
 
 void ChessBoardDrawer::draw(sf::RenderWindow& board){
