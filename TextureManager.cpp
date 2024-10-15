@@ -4,22 +4,6 @@
 #include <SFML/Graphics.hpp>
 
 
-enum class PieceType {
-    WhitePawn, WhiteRook, WhiteKnight, WhiteBishop, WhiteQueen, WhiteKing,
-    BlackPawn, BlackRook, BlackKnight, BlackBishop, BlackQueen, BlackKing
-};
-
-
-namespace std { //hash function for PieceType
-    template<>
-    struct hash<PieceType> {
-        std::size_t operator()(PieceType piece) const {
-            int pieceAsInt = static_cast<int>(piece);
-            return std::hash<int>()(pieceAsInt);
-        }
-    }; 
-}
-
 bool TextureManager::loadTextures(){
     std::unordered_map<PieceType, std::string> filenames = {
         {PieceType::WhitePawn, "assets/whitePawn.png"},

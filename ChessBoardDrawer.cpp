@@ -1,5 +1,6 @@
 #include <iostream> // Include the necessary header for 'ostream'
 #include "ChessBoardDrawer.h"
+#include "PieceDrawer.h"
 
 //make margins a perctange of width and height
 const int BORDER_WIDTH = 10;
@@ -67,7 +68,7 @@ void ChessBoardDrawer::drawNumbers(sf::RenderWindow& board){
 void ChessBoardDrawer::drawLetters(sf::RenderWindow& board){
     int widthOfSquare = (getWidth() - 2 * (BORDER_WIDTH + MARGIN)) / 8;
     sf::Font font;
-    if (!font.loadFromFile("Roboto-Regular.ttf")) {
+    if (!font.loadFromFile("assets/Roboto-Regular.ttf")) {
         // handle error
     }
     sf::Text text;
@@ -84,6 +85,10 @@ void ChessBoardDrawer::drawLetters(sf::RenderWindow& board){
 
 void ChessBoardDrawer::drawPeices(sf::RenderWindow& board){
     //draw peices on board
+    PieceDrawer pieceDrawer;
+    pieceDrawer.loadSprites();
+    pieceDrawer.positionSprites();
+    pieceDrawer.draw(board);
  }
 
 

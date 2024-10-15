@@ -2,7 +2,7 @@
 #define PIECEDRAWER_H
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
-#include "TextureManager.cpp"
+#include "TextureManager.h"
 
 class PieceDrawer{
     public:
@@ -10,7 +10,7 @@ class PieceDrawer{
         void positionSprites();
         void draw(sf::RenderWindow& aBoard);
     private:
-        std::unordered_map<PieceType, sf::Sprite> sprites;
-}
+        std::unordered_map<TextureManager::PieceType, sf::Sprite> sprites;
+};
 
-#endif //DrawPieces.h
+#endif // PIECEDRAWER_H
